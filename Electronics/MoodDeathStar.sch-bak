@@ -1,0 +1,219 @@
+EESchema Schematic File Version 4
+LIBS:MoodDeathStar-cache
+EELAYER 30 0
+EELAYER END
+$Descr A4 11693 8268
+encoding utf-8
+Sheet 1 1
+Title ""
+Date ""
+Rev ""
+Comp ""
+Comment1 ""
+Comment2 ""
+Comment3 ""
+Comment4 ""
+$EndDescr
+$Comp
+L MCU_Module:Arduino_Nano_v3.x A1
+U 1 1 5D5ADE66
+P 6350 2750
+F 0 "A1" V 6304 1707 50  0000 R CNN
+F 1 "Arduino_Nano_v3.x" V 6395 1707 50  0000 R CNN
+F 2 "Module:Arduino_Nano" H 6500 1800 50  0001 L CNN
+F 3 "http://www.mouser.com/pdfdocs/Gravitech_Arduino_Nano3_0.pdf" H 6350 1750 50  0001 C CNN
+	1    6350 2750
+	0    1    1    0   
+$EndComp
+$Comp
+L Switch:SW_SPST SWMODE1
+U 1 1 5D5B5A65
+P 7850 2100
+F 0 "SWMODE1" H 7850 2243 50  0000 C CNN
+F 1 "s" H 7850 2244 50  0001 C CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical" H 7850 2100 50  0001 C CNN
+F 3 "~" H 7850 2100 50  0001 C CNN
+	1    7850 2100
+	1    0    0    -1  
+$EndComp
+$Comp
+L pspice:R R1
+U 1 1 5D5B6B33
+P 7900 2600
+F 0 "R1" V 8105 2600 50  0000 C CNN
+F 1 "10k" V 8014 2600 50  0000 C CNN
+F 2 "Resistor_THT:R_Axial_DIN0204_L3.6mm_D1.6mm_P7.62mm_Horizontal" H 7900 2600 50  0001 C CNN
+F 3 "~" H 7900 2600 50  0001 C CNN
+	1    7900 2600
+	0    -1   -1   0   
+$EndComp
+$Comp
+L Connector_Generic:Conn_01x03 JLED1
+U 1 1 5D5BBCAD
+P 7950 3100
+F 0 "JLED1" H 8030 3096 50  0000 L CNN
+F 1 "Conn_01x03" H 8030 3051 50  0001 L CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical" H 7950 3100 50  0001 C CNN
+F 3 "~" H 7950 3100 50  0001 C CNN
+	1    7950 3100
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	7550 3000 7750 3000
+Wire Wire Line
+	7750 3200 7650 3200
+Wire Wire Line
+	7750 3100 8450 3100
+Wire Wire Line
+	8450 3100 8450 1800
+Wire Wire Line
+	8450 1800 6650 1800
+Wire Wire Line
+	6650 1800 6650 1900
+Wire Wire Line
+	7500 2150 7500 2600
+Wire Wire Line
+	7500 2600 7650 2600
+Wire Wire Line
+	7650 2100 7500 2100
+Wire Wire Line
+	7500 2100 7500 2150
+Connection ~ 7500 2150
+Wire Wire Line
+	8050 2100 8850 2100
+Wire Wire Line
+	8850 2100 8850 4050
+Wire Wire Line
+	8850 4050 7550 4050
+Wire Wire Line
+	6650 3400 5650 3400
+Wire Wire Line
+	5650 3400 5650 3250
+Wire Wire Line
+	7550 3000 7550 2950
+Wire Wire Line
+	7550 2950 7350 2950
+Connection ~ 7550 3000
+Wire Wire Line
+	5200 2850 5350 2850
+Wire Wire Line
+	7750 3700 7750 3500
+Wire Wire Line
+	7750 3500 8500 3500
+Wire Wire Line
+	8500 3500 8500 4400
+Wire Wire Line
+	7550 4050 7550 4400
+Connection ~ 7550 4050
+Wire Wire Line
+	6650 3750 6600 3750
+Wire Wire Line
+	6650 3400 6650 3750
+Wire Wire Line
+	6750 2250 6750 2150
+Wire Wire Line
+	6750 2150 7500 2150
+$Comp
+L Device:R R2
+U 1 1 5D5C5C7D
+P 5200 2050
+F 0 "R2" H 5270 2096 50  0000 L CNN
+F 1 "260" H 5270 2005 50  0000 L CNN
+F 2 "Resistor_THT:R_Axial_DIN0204_L3.6mm_D1.6mm_P7.62mm_Horizontal" V 5130 2050 50  0001 C CNN
+F 3 "~" H 5200 2050 50  0001 C CNN
+	1    5200 2050
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5200 1900 6650 1900
+Connection ~ 6650 1900
+Wire Wire Line
+	6650 1900 6650 2250
+Wire Wire Line
+	5200 2200 5200 2850
+Connection ~ 5200 2850
+Wire Wire Line
+	7550 4050 7550 3700
+Wire Wire Line
+	7550 3700 7550 3000
+Connection ~ 7550 3700
+Wire Wire Line
+	7550 3700 7200 3700
+Wire Wire Line
+	7200 3700 7200 3500
+Wire Wire Line
+	6150 3500 7200 3500
+Wire Wire Line
+	6450 3900 6150 3900
+Wire Wire Line
+	6150 3900 6150 3500
+Wire Wire Line
+	7100 3600 7100 3800
+Wire Wire Line
+	6450 3600 7100 3600
+$Comp
+L Device:R_POT RV1
+U 1 1 5D5B2863
+P 6450 3750
+F 0 "RV1" H 6380 3796 50  0000 R CNN
+F 1 "4.7k" H 6380 3705 50  0000 R CNN
+F 2 "Potentiometer_THT:Potentiometer_Alps_RK163_Single_Horizontal" H 6450 3750 50  0001 C CNN
+F 3 "~" H 6450 3750 50  0001 C CNN
+	1    6450 3750
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	8150 2600 8700 2600
+Wire Wire Line
+	8700 2600 8700 3950
+Connection ~ 7100 3800
+Wire Wire Line
+	7100 3800 7100 4000
+Wire Wire Line
+	7100 4000 5200 4000
+Wire Wire Line
+	5200 4000 5200 2850
+$Comp
+L Connector:Screw_Terminal_01x02 J?
+U 1 1 5D5F8EB1
+P 7950 4750
+F 0 "J?" V 7822 4830 50  0000 L CNN
+F 1 "Screw_Terminal_01x02" V 7913 4830 50  0000 L CNN
+F 2 "TerminalBlock:TerminalBlock_Altech_AK300-2_P5.00mm" H 7950 4750 50  0001 C CNN
+F 3 "~" H 7950 4750 50  0001 C CNN
+	1    7950 4750
+	0    1    1    0   
+$EndComp
+$Comp
+L Connector:Screw_Terminal_01x02 J?
+U 1 1 5D5FB377
+P 8200 3700
+F 0 "J?" H 8280 3692 50  0000 L CNN
+F 1 "Screw_Terminal_01x02" H 8280 3601 50  0000 L CNN
+F 2 "TerminalBlock:TerminalBlock_Altech_AK300-2_P5.00mm" H 8200 3700 50  0001 C CNN
+F 3 "~" H 8200 3700 50  0001 C CNN
+	1    8200 3700
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	7650 3950 7650 3800
+Wire Wire Line
+	7100 3800 7650 3800
+Connection ~ 7650 3800
+Wire Wire Line
+	7650 3200 7650 3800
+Wire Wire Line
+	7650 3950 8700 3950
+Wire Wire Line
+	7750 3700 8000 3700
+Wire Wire Line
+	7650 3800 8000 3800
+Wire Wire Line
+	7950 4400 7950 4550
+Wire Wire Line
+	7950 4400 8500 4400
+Wire Wire Line
+	7850 4400 7850 4550
+Wire Wire Line
+	7550 4400 7850 4400
+$EndSCHEMATC
