@@ -18,6 +18,8 @@ bool gReverseDirection = false;
 volatile int brightness = 96;
 int oldbrightness= 0;
 
+volatile bool glowstate = false;
+
 volatile bool triggerInUse=false;
 
 volatile bool firstrun=true;
@@ -40,7 +42,7 @@ void setup() {
 
 // List of patterns to cycle through.  Each is defined as a separate function below.
 typedef void (*SimplePatternList[])();
-SimplePatternList gPatterns = { rainbow, rainbowWithGlitter, confetti, sinelon, juggle, bpm, Fire2012WithPalette };
+SimplePatternList gPatterns = { upanddownDarkRed, upanddown, bpm, glow, allwhite, flicker, rainbow, rainbowWithGlitter, confetti, sinelon, juggle, Fire2012WithPalette };
 
 uint8_t gCurrentPatternNumber = 0; // Index number of which pattern is current
 uint8_t gHue = 0; // rotating "base color" used by many of the patterns
@@ -98,10 +100,288 @@ void loop()
 
 void nextPattern()
 {
+  //reset brightness to potivalue
+  FastLED.setBrightness(brightness);
   // add one to the current pattern number, and wrap around at the end
   gCurrentPatternNumber = (gCurrentPatternNumber + 1) % ARRAY_SIZE( gPatterns);
   Serial.print("PATTERN: ");
   Serial.println(gCurrentPatternNumber);
+}
+
+
+void upanddownDarkRed(){
+  CRGB thiscolor = CRGB::DarkRed;
+  for(int i = 1; i < 9;i++) {
+      for( int i = 0; i < NUM_LEDS; i++) { //9948
+        leds[i] = CRGB::Black;
+      }
+      int reverse = 0 - i;
+
+      leds[i-1] = thiscolor;
+      leds[i] = thiscolor;
+      leds[i+1] = thiscolor;
+      
+      leds[19+reverse-1] = thiscolor;      
+      leds[19+reverse] = thiscolor;      
+      leds[19+reverse+1] = thiscolor;      
+      
+      leds[20+i-1] = thiscolor;
+      leds[20+i] = thiscolor;
+      leds[20+i+1] = thiscolor;
+      
+      leds[39+reverse-1] = thiscolor;
+      leds[39+reverse] = thiscolor;
+      leds[39+reverse+1] = thiscolor;
+      
+      FastLED.show();  
+      delay(150);
+  }
+  for(int i = 8; i >= 1;i--) {
+      for( int i = 0; i < NUM_LEDS; i++) { //9948
+        leds[i] = CRGB::Black;
+      }
+      int reverse = 0 - i;
+      
+      leds[i-1] = thiscolor;
+      leds[i] = thiscolor;
+      leds[i+1] = thiscolor;
+      
+      leds[19+reverse-1] = thiscolor;      
+      leds[19+reverse] = thiscolor;      
+      leds[19+reverse+1] = thiscolor;      
+      
+      leds[20+i-1] = thiscolor;
+      leds[20+i] = thiscolor;
+      leds[20+i+1] = thiscolor;
+      
+      leds[39+reverse-1] = thiscolor;
+      leds[39+reverse] = thiscolor;
+      leds[39+reverse+1] = thiscolor;
+      
+      FastLED.show();  
+      delay(150);
+  }
+    
+}
+
+
+void upanddown(){
+  int colorint = random(1,8);
+  CRGB thiscolor = CRGB::White;
+  switch (colorint) {
+    case 1:
+      thiscolor = CRGB::White;
+      break;
+    case 2:
+      thiscolor = CRGB::Blue;
+      break;
+    case 3:
+      thiscolor = CRGB::Yellow;
+      break;
+    case 4:
+      thiscolor = CRGB::Red;
+      break;
+    case 5:
+      thiscolor = CRGB::Green;
+      break;
+    case 6:
+      thiscolor = CRGB::Pink;
+      break;
+    case 7:
+      thiscolor = CRGB::Brown;
+      break;
+    case 8:
+      thiscolor = CRGB::DarkBlue;
+      break;
+    default:
+      break;
+  }
+  for(int i = 1; i < 9;i++) {
+      for( int i = 0; i < NUM_LEDS; i++) { //9948
+        leds[i] = CRGB::Black;
+      }
+      int reverse = 0 - i;
+
+      leds[i-1] = thiscolor;
+      leds[i] = thiscolor;
+      leds[i+1] = thiscolor;
+      
+      leds[19+reverse-1] = thiscolor;      
+      leds[19+reverse] = thiscolor;      
+      leds[19+reverse+1] = thiscolor;      
+      
+      leds[20+i-1] = thiscolor;
+      leds[20+i] = thiscolor;
+      leds[20+i+1] = thiscolor;
+      
+      leds[39+reverse-1] = thiscolor;
+      leds[39+reverse] = thiscolor;
+      leds[39+reverse+1] = thiscolor;
+      
+      FastLED.show();  
+      delay(100);
+  }
+  for(int i = 8; i >= 1;i--) {
+      for( int i = 0; i < NUM_LEDS; i++) { //9948
+        leds[i] = CRGB::Black;
+      }
+      int reverse = 0 - i;
+      
+      leds[i-1] = thiscolor;
+      leds[i] = thiscolor;
+      leds[i+1] = thiscolor;
+      
+      leds[19+reverse-1] = thiscolor;      
+      leds[19+reverse] = thiscolor;      
+      leds[19+reverse+1] = thiscolor;      
+      
+      leds[20+i-1] = thiscolor;
+      leds[20+i] = thiscolor;
+      leds[20+i+1] = thiscolor;
+      
+      leds[39+reverse-1] = thiscolor;
+      leds[39+reverse] = thiscolor;
+      leds[39+reverse+1] = thiscolor;
+      
+      FastLED.show();  
+      delay(100);
+  }
+    
+}
+
+void glow() {
+
+      for( int i = 0; i < NUM_LEDS; i=i+3) { //9948
+        leds[i] = CRGB::White;
+      }
+      
+      if(glowstate==false) {
+        glowstate=true;
+        for(int i=10;i<brightness;i=i+10) {
+          FastLED.setBrightness(i);
+          FastLED.show();  
+          delay(30);
+        }
+        
+      } else {
+        glowstate=false;
+        for(int i=brightness;i>=0;i=i-10) {
+          FastLED.setBrightness(i);
+          FastLED.show();  
+          delay(30);
+        }
+        
+      }
+      //delay(1000); 
+}
+
+
+void allwhite() {
+      for( int i = 0; i < NUM_LEDS; i=i+3) { //9948
+        leds[i] = CRGB::Black;
+      }
+      FastLED.show();  
+      delay(5);
+      for( int i = 0; i < NUM_LEDS; i=i+3) { //9948
+        leds[i] = CRGB::White;
+      }
+      FastLED.show();  
+      delay(100);
+       
+}
+
+void flicker()
+{
+
+  int result = random(1, 7);
+  switch (result) {
+    case 1:
+      for( int i = 0; i < NUM_LEDS; i=i+3) { //9948
+        leds[i] = CRGB::White;
+      }
+      for( int i = 1; i < NUM_LEDS; i=i+3) { //9948
+        leds[i] = CRGB::Blue;
+      }
+      for( int i = 2; i < NUM_LEDS; i=i+3) { //9948
+        leds[i] = CRGB::Red;
+      }
+      break;
+    case 2:
+      for( int i = 0; i < NUM_LEDS; i=i+3) { //9948
+        leds[i] = CRGB::Yellow;
+      }
+      for( int i = 1; i < NUM_LEDS; i=i+3) { //9948
+        leds[i] = CRGB::DarkRed;
+      }
+      for( int i = 2; i < NUM_LEDS; i=i+3) { //9948
+        leds[i] = CRGB::Green;
+      }
+      break;
+    case 3:
+      for( int i = 0; i < NUM_LEDS; i=i+3) { //9948
+        leds[i] = CRGB::DarkRed;
+      }
+      for( int i = 1; i < NUM_LEDS; i=i+3) { //9948
+        leds[i] = CRGB::DarkBlue;
+      }
+      for( int i = 2; i < NUM_LEDS; i=i+3) { //9948
+        leds[i] = CRGB::Yellow;
+      }
+      break;
+    case 4:
+      for( int i = 0; i < NUM_LEDS; i=i+3) { //9948
+        leds[i] = CRGB::Cornsilk;
+      }
+      for( int i = 1; i < NUM_LEDS; i=i+3) { //9948
+        leds[i] = CRGB::DeepPink;
+      }
+      for( int i = 2; i < NUM_LEDS; i=i+3) { //9948
+        leds[i] = CRGB::White;
+      }
+      break;
+    case 5:
+      for( int i = 0; i < NUM_LEDS; i=i+3) { //9948
+        leds[i] = CRGB::White;
+      }
+      for( int i = 1; i < NUM_LEDS; i=i+3) { //9948
+        leds[i] = CRGB::White;
+      }
+      for( int i = 2; i < NUM_LEDS; i=i+3) { //9948
+        leds[i] = CRGB::White;
+      }
+      break;
+    case 6:
+      for( int i = 0; i < NUM_LEDS; i=i+3) { //9948
+        leds[i] = CRGB::Blue;
+      }
+      for( int i = 1; i < NUM_LEDS; i=i+3) { //9948
+        leds[i] = CRGB::Blue;
+      }
+      for( int i = 2; i < NUM_LEDS; i=i+3) { //9948
+        leds[i] = CRGB::Blue;
+      }
+      break;
+    case 7:
+      for( int i = 0; i < NUM_LEDS; i=i+3) { //9948
+        leds[i] = CRGB::Red;
+      }
+      for( int i = 1; i < NUM_LEDS; i=i+3) { //9948
+        leds[i] = CRGB::White;
+      }
+      for( int i = 2; i < NUM_LEDS; i=i+3) { //9948
+        leds[i] = CRGB::Blue;
+      }
+      break;
+    
+    default:
+      // statements
+      break;
+  }
+  
+  
+  addGlitter(80);
+  delay(10);
+  
 }
 
 void rainbow() 
