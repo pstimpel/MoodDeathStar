@@ -62,6 +62,6 @@ Drill a hole of 7mm onto the stand, and into the mounting point of the bottom ha
 
 Run a first test. Working well? Use some super glue to connect both halfs of your death star. Mount the "ball" on top of the stand. Use some super glue to fix it there. Use 2 M3-12mm screws, and mount the top stand to the bottom stand. There are holes you use, just use a longer screw driver and the holes on the bottom of your stand.
 
-Brag with your new illimunated Death star.
+Brag with your new illuminated Death star.
 
 Video explaining this project: https://youtu.be/01-m4wZ4NJw
