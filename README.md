@@ -5,7 +5,7 @@ A moodlamp and a Death star once had a one night stand...
 https://pinshape.com/items/30200-3d-printed-star-wars-death-star
 
 ## 3D Print the stuff
-Using my Prusa I3Mk3 I printed the 2 shells in 0.15mm. The inlays were printed in 0.25mm. I was using filament from https://DasFilament.de. I used silver for the shells, and anthracite for the inlays. The housing for the electronics was printed in "nature", and once I ran out of this filament I was using some silver as well.
+Using my Prusa I3Mk3 I printed the 2 shells in 0.15mm. The inlays were printed in 0.25mm. I was using filament from https://DasFilament.de. I used silver for the shells, and anthracite for the inlays. The housing for the electronics was printed in "nature", and once I ran out of this filament I was using some silver as well. I was printing the Death Star at 150% size. The electronic housing does not need any scaling.
 
 ## Buy the stuff you need (all Amazon links are non profit links and just examples for the stuff I bought)
 1 switch, has to handle 3A or more https://www.amazon.de/gp/product/B012MCQ2QO
