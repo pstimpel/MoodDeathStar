@@ -41,7 +41,7 @@ some cable, doesn't have to handle 3A
 a small piece of stripboard to mount the tactile button on it
 
 ## Create the PCB, or use a service to do so
-Creating the PCB yourself is always fun. I was using toner transfer method, and the sponge method to remove copper from the PCB. If you dislike to work with chemicals, just order the PCB. You can find the layout inside the electronics folder. The layout was created using the famous and almighty KICAD (http://kicad-pcb.org/ ).
+Creating the PCB yourself is always fun. I was using toner transfer method, and the sponge method to remove copper from the PCB. If you dislike to work with chemicals, just order the PCB. You can find the layout inside the electronics folder. The layout was created using the famous and almighty KICAD (https://kicad.org/ ).
 
 ## Add the electronics to the housing
 You need some M3x8mm screws to lock down the pcb, the delock connector, the trigger and the USB. The Tactile button goes a small stripboard piece. Just add two cables around 10cm length each to it, and connect the cables to one of the screw terminals on your main pcb. This while act as a trigger to switch between the different illunmination modes.
